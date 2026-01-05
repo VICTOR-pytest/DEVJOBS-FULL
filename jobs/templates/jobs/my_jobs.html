@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Minhas Vagas</h2>
+
+{% if jobs %}
+    <ul>
+        {% for job in jobs %}
+            <li>
+                <strong>{{ job.title }}</strong>
+                <a href="{% url 'job_detail' job.id %}">Ver</a>
+                <a href="{% url 'job_update' job.id %}">Editar</a>
+                <a href="{% url 'job_delete' job.id %}">Excluir</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Você ainda não criou nenhuma vaga.</p>
+{% endif %}
+{% endblock %}

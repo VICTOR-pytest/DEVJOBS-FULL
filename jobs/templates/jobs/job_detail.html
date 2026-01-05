@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 style="color:#b983ff;">{{ job.title }}</h2>
+
+<p>{{ job.description }}</p>
+
+<p>
+    <strong>Empresa:</strong> {{ job.company.name }}
+</p>
+
+<br>
+
+<a href="{% url 'empregos:lista_de_empregos' %}" class="btn">
+    Voltar
+</a>
+{% endblock %}

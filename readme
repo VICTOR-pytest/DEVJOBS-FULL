@@ -1,0 +1,42 @@
+# DEVJOBS-FULL
+
+![DEVJOBS](https://img.shields.io/badge/Status-Concluído-brightgreen) ![Python](https://img.shields.io/badge/Python-3.11-blue) ![Django](https://img.shields.io/badge/Django-4.3-green)
+
+## 📌 Descrição
+
+DEVJOBS é uma **plataforma de gerenciamento de vagas de emprego** desenvolvida em **Django**.  
+O projeto permite que usuários se cadastrem, façam login, criem, editem e excluam vagas, além de visualizar todas as vagas disponíveis.  
+Este projeto é focado em **Backend Django** com autenticação, CRUD completo, permissões e boas práticas para portfólio de desenvolvedor backend Júnior.
+
+---
+
+## 🛠️ Tecnologias
+
+- Python 3.11  
+- Django 4.3  
+- HTML / CSS (Bootstrap 5)  
+- Git / GitHub  
+- Render (para deploy)  
+- PostgreSQL (opcional para deploy)
+
+---
+
+## ⚡ Funcionalidades
+
+- Cadastro e login de usuários  
+- CRUD completo de vagas (Criar, Listar, Editar, Deletar)  
+- Controle de permissões (apenas o dono da vaga pode editar ou deletar)  
+- Página “Minhas Vagas” com todas as vagas do usuário  
+- Layout global com `base.html`  
+- Mensagens de sucesso e erro integradas  
+- Navegação responsiva com navbar dinâmica  
+- Deploy pronto para Render
+
+---
+
+## 🚀 Como rodar localmente
+
+### 1️⃣ Clonar o repositório
+```bash
+git clone git@github.com:VICTOR-pytest/DEVJOBS-FULL.git
+cd DEVJOBS-FULL
