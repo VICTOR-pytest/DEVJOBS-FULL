@@ -1,2 +1,2 @@
-web: gunicorn DEVJOBS.wsgi
+web: gunicorn devjobs.wsgi
 
