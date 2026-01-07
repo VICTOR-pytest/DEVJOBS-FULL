@@ -132,5 +132,11 @@ LOGIN_REDIRECT_URL = 'jobs:job_list'
 LOGOUT_REDIRECT_URL = 'login'
 
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://web-production-7709.up.railway.app",
+]
+
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
