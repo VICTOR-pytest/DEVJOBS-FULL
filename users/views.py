@@ -13,6 +13,8 @@ class RegisterView(CreateView):
 
     def form_valid(self, form):
         # Salvar a senha criptografada
+        User.objects.all()
+
         user = form.save(commit=False)
         user.set_password(form.cleaned_data['password'])
         user.save()
