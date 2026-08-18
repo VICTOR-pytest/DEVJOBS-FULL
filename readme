@@ -1,42 +1,413 @@
-# DEVJOBS-FULL
+# 💼 DEVJOBS
 
-![DEVJOBS](https://img.shields.io/badge/Status-Concluído-brightgreen) ![Python](https://img.shields.io/badge/Python-3.11-blue) ![Django](https://img.shields.io/badge/Django-4.3-green)
+### Job Management Platform
 
-## 📌 Descrição
-
-DEVJOBS é uma **plataforma de gerenciamento de vagas de emprego** desenvolvida em **Django**.  
-O projeto permite que usuários se cadastrem, façam login, criem, editem e excluam vagas, além de visualizar todas as vagas disponíveis.  
-Este projeto é focado em **Backend Django** com autenticação, CRUD completo, permissões e boas práticas para portfólio de desenvolvedor backend Júnior.
+> Full-stack job management platform built with Python and Django, featuring authentication, authorization, complete CRUD operations and PostgreSQL-ready deployment.
 
 ---
 
-## 🛠️ Tecnologias
+## 🚀 Overview
 
-- Python 3.11  
-- Django 4.3  
-- HTML / CSS (Bootstrap 5)  
-- Git / GitHub  
-- Render (para deploy)  
-- PostgreSQL (opcional para deploy)
+**DEVJOBS** is a web application for managing job listings.
 
----
+The platform allows users to create an account, authenticate, publish job opportunities and manage their own listings through a permission-based CRUD system.
 
-## ⚡ Funcionalidades
-
-- Cadastro e login de usuários  
-- CRUD completo de vagas (Criar, Listar, Editar, Deletar)  
-- Controle de permissões (apenas o dono da vaga pode editar ou deletar)  
-- Página “Minhas Vagas” com todas as vagas do usuário  
-- Layout global com `base.html`  
-- Mensagens de sucesso e erro integradas  
-- Navegação responsiva com navbar dinâmica  
-- Deploy pronto para Render
+The project was built with a focus on **backend development using Django**, authentication, authorization, database management and clean application structure.
 
 ---
 
-## 🚀 Como rodar localmente
+## ✨ Features
 
-### 1️⃣ Clonar o repositório
+- [x] User registration
+- [x] User authentication
+- [x] Login and logout
+- [x] Create job listings
+- [x] List available jobs
+- [x] View job details
+- [x] Edit job listings
+- [x] Delete job listings
+- [x] "My Jobs" dashboard
+- [x] Ownership-based permissions
+- [x] Success and error messages
+- [x] Responsive navigation
+- [x] Bootstrap UI
+- [x] Production deployment configuration
+
+---
+
+## 🔐 Authorization
+
+Users can manage only the jobs they own.
+
+```text
+Authenticated User
+       │
+       ▼
+    Job Request
+       │
+       ▼
+   Ownership Check
+       │
+   ┌───┴────┐
+   │        │
+   ▼        ▼
+ Owner    Not Owner
+   │        │
+   ▼        ▼
+Allowed   Denied
+```
+
+This prevents users from editing or deleting job listings belonging to other accounts.
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| Python 3.11 | Backend language |
+| Django 4.3 | Web framework |
+| SQLite | Local development database |
+| PostgreSQL | Production-ready database |
+| HTML5 | Frontend |
+| CSS3 | Styling |
+| Bootstrap 5 | UI components |
+| Git | Version control |
+| Render | Deployment |
+
+---
+
+## 🏗️ Architecture
+
+The application follows Django's standard architecture:
+
+```text
+Client
+  │
+  ▼
+Django URLs
+  │
+  ▼
+Views
+  │
+  ├── Authentication
+  ├── Authorization
+  └── Business Logic
+  │
+  ▼
+Models
+  │
+  ▼
+Database
+  │
+  ▼
+Template
+  │
+  ▼
+HTML Response
+```
+
+---
+
+## 📋 Job Management
+
+Each job listing contains information required to represent an employment opportunity.
+
+The main workflow is:
+
+```text
+Create
+  │
+  ▼
+Publish
+  │
+  ▼
+View
+  │
+  ├── Edit
+  │
+  └── Delete
+```
+
+Only the owner of a listing can modify or remove it.
+
+---
+
+## 👤 Authentication
+
+The application provides user authentication using Django's authentication system.
+
+Available functionality:
+
+- Account registration
+- Login
+- Logout
+- Authenticated sessions
+- Protected routes
+- User-specific job management
+
+---
+
+## 📊 My Jobs
+
+Authenticated users have access to a dedicated area containing their own job listings.
+
+```text
+User
+ │
+ ▼
+My Jobs
+ │
+ ├── Job 01
+ │    ├── View
+ │    ├── Edit
+ │    └── Delete
+ │
+ ├── Job 02
+ │    ├── View
+ │    ├── Edit
+ │    └── Delete
+ │
+ └── Job N
+```
+
+---
+
+## 🎨 Frontend
+
+The interface uses Django Templates with Bootstrap 5.
+
+The application includes:
+
+- Responsive navigation
+- Dynamic navbar
+- Reusable `base.html`
+- Form interfaces
+- Feedback messages
+- Job listing pages
+- User-specific pages
+
+---
+
+## 🗄️ Database
+
+The application was developed with SQLite for local development and is prepared for PostgreSQL deployment.
+
+```text
+Development
+     │
+     ▼
+ SQLite
+
+Production
+     │
+     ▼
+ PostgreSQL
+```
+
+---
+
+## 🚀 Getting Started
+
+### Requirements
+
+- Python 3.11+
+- pip
+- Git
+
+---
+
+### 1. Clone the repository
+
 ```bash
-git clone git@github.com:VICTOR-pytest/DEVJOBS-FULL.git
+git clone https://github.com/VICTOR-pytest/DEVJOBS-FULL.git
+
 cd DEVJOBS-FULL
+```
+
+---
+
+### 2. Create a virtual environment
+
+Linux/macOS:
+
+```bash
+python3 -m venv venv
+
+source venv/bin/activate
+```
+
+Windows:
+
+```bash
+python -m venv venv
+
+venv\Scripts\activate
+```
+
+---
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 4. Apply migrations
+
+```bash
+python manage.py migrate
+```
+
+---
+
+### 5. Create an administrator
+
+```bash
+python manage.py createsuperuser
+```
+
+---
+
+### 6. Start the development server
+
+```bash
+python manage.py runserver
+```
+
+Open:
+
+```text
+http://127.0.0.1:8000/
+```
+
+---
+
+## 🧪 Testing
+
+Run the Django test suite:
+
+```bash
+python manage.py test
+```
+
+---
+
+## 🚢 Deployment
+
+The project includes configuration for deployment using **Render**.
+
+Production deployment can use:
+
+```text
+Django
+   │
+   ▼
+Gunicorn
+   │
+   ▼
+Render
+   │
+   ▼
+PostgreSQL
+```
+
+---
+
+## 📌 Project Status
+
+**Status:** Completed
+
+The project represents a completed Django job-management application and serves as a practical demonstration of backend development with authentication, CRUD operations and authorization.
+
+---
+
+## 🧠 Engineering Concepts Demonstrated
+
+### Backend
+
+- Python
+- Django
+- Django Views
+- Django Models
+- Django Templates
+- URL routing
+- Authentication
+- Authorization
+
+### Database
+
+- ORM
+- Migrations
+- SQLite
+- PostgreSQL
+
+### Web Development
+
+- HTML
+- CSS
+- Bootstrap
+- Forms
+- Sessions
+- HTTP methods
+
+### Software Engineering
+
+- CRUD architecture
+- Separation of responsibilities
+- Access control
+- Environment configuration
+- Deployment
+
+---
+
+## 🗺️ Future Improvements
+
+- [ ] Django REST Framework API
+- [ ] Advanced job search
+- [ ] Pagination
+- [ ] Job categories
+- [ ] Location filtering
+- [ ] Company profiles
+- [ ] Email notifications
+- [ ] Automated tests
+- [ ] Docker
+- [ ] CI/CD with GitHub Actions
+- [ ] PostgreSQL production environment
+
+---
+
+## 👨‍💻 Author
+
+**Victor Ramos**
+
+Backend Developer focused on:
+
+```text
+Python
+Node.js
+FastAPI
+Django
+PostgreSQL
+Docker
+React
+TypeScript
+Artificial Intelligence
+Computer Vision
+```
+
+GitHub:
+
+https://github.com/VICTOR-pytest
+
+---
+
+## 📄 License
+
+This project is available under the license specified in the repository.
+
+---
+
+> **DEVJOBS — A Django-based platform for managing job opportunities.**
